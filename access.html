@@ -126,9 +126,9 @@
 
         .parameters-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            /* 5 columns */
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             gap: 10px;
+            max-width: 100%;
         }
 
         .parameters-column {
@@ -145,6 +145,16 @@
 
         .parameter-item input[type="checkbox"] {
             margin-right: 5px;
+        }
+
+        .parameters-container .parameter-item label {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            white-space: nowrap;
+            width: 160px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .parameters-container button {
@@ -488,7 +498,6 @@
             }
         }
 
-        /* Additional adjustments for smaller screens */
         @media (max-width: 450px) {
             nav .sidebar-button i {
                 font-size: 22px;
@@ -563,7 +572,6 @@
             }
         }
 
-        /* Login Form Styles */
         .login-container {
             display: flex;
             justify-content: center;
@@ -666,10 +674,6 @@
                 <i class='bx bx-menu sidebarBtn'></i>
                 <span class="dashboard">Data Access</span>
             </div>
-            <div class="search-box">
-                <input type="text" placeholder="Search...">
-                <i class='bx bx-search'></i>
-            </div>
             <div class="profile-details">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Logo_Rasmi_UMT.png" alt="UMT Logo"
                     style="width: 30px; height: 20px; margin-right: 5px;">
@@ -713,72 +717,61 @@
 
                 <label style="font-weight: bold;">Parameters:</label>
                 <div id="parameters" class="parameters-grid">
-                    <div class="parameters-column">
-                        <div class="parameter-item">
-                            <input type="checkbox" id="wind_speed" name="parameters" value="wind_speed">
-                            <label for="wind_speed">Wind Speed</label>
-                        </div>
-                        <div class="parameter-item">
-                            <input type="checkbox" id="wind_direction" name="parameters" value="wind_direction">
-                            <label for="wind_direction">Wind Direction</label>
-                        </div>
-                        <div class="parameter-item">
-                            <input type="checkbox" id="water_level" name="parameters" value="water_level">
-                            <label for="water_level">Water Level</label>
-                        </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="wind_speed" name="parameters" value="wind_speed">
+                        <label for="wind_speed">Wind Speed</label>
                     </div>
-                    <div class="parameters-column">
-                        <div class="parameter-item">
-                            <input type="checkbox" id="rainfall" name="parameters" value="rainfall">
-                            <label for="rainfall">Rainfall</label>
-                        </div>
-                        <div class="parameter-item">
-                            <input type="checkbox" id="air_temperature" name="parameters" value="air_temperature">
-                            <label for="air_temperature">Air Temperature</label>
-                        </div>
-                        <div class="parameter-item">
-                            <input type="checkbox" id="relative_humidity" name="parameters" value="relative_humidity">
-                            <label for="relative_humidity">Relative Humidity</label>
-                        </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="rainfall" name="parameters" value="rainfall">
+                        <label for="rainfall">Rainfall</label>
                     </div>
-                    <div class="parameters-column">
-                        <div class="parameter-item">
-                            <input type="checkbox" id="barometric_pressure" name="parameters"
-                                value="barometric_pressure">
-                            <label for="barometric_pressure">Barometric Pressure</label>
-                        </div>
-                        <div class="parameter-item">
-                            <input type="checkbox" id="solar_radiation" name="parameters" value="solar_radiation">
-                            <label for="solar_radiation">Solar Radiation</label>
-                        </div>
-                        <div class="parameter-item">
-                            <input type="checkbox" id="water_temperature" name="parameters" value="water_temperature">
-                            <label for="water_temperature">Water Temperature</label>
-                        </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="barometric_pressure" name="parameters" value="barometric_pressure">
+                        <label for="barometric_pressure">Barometric Pressure</label>
                     </div>
-                    <div class="parameters-column">
-                        <div class="parameter-item">
-                            <input type="checkbox" id="dissolved_oxygen" name="parameters" value="dissolved_oxygen">
-                            <label for="dissolved_oxygen">Dissolved Oxygen</label>
-                        </div>
-                        <div class="parameter-item">
-                            <input type="checkbox" id="ph" name="parameters" value="ph">
-                            <label for="ph">pH</label>
-                        </div>
-                        <div class="parameter-item">
-                            <input type="checkbox" id="conductivity" name="parameters" value="conductivity">
-                            <label for="conductivity">Conductivity</label>
-                        </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="dissolved_oxygen" name="parameters" value="dissolved_oxygen">
+                        <label for="dissolved_oxygen">Dissolved Oxygen</label>
                     </div>
-                    <div class="parameters-column">
-                        <div class="parameter-item">
-                            <input type="checkbox" id="chlorophyll_a" name="parameters" value="chlorophyll_a">
-                            <label for="chlorophyll_a">Chlorophyll a</label>
-                        </div>
-                        <div class="parameter-item">
-                            <input type="checkbox" id="turbidity" name="parameters" value="turbidity">
-                            <label for="turbidity">Turbidity</label>
-                        </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="chlorophyll_a" name="parameters" value="chlorophyll_a">
+                        <label for="chlorophyll_a">Chlorophyll a</label>
+                    </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="wind_direction" name="parameters" value="wind_direction">
+                        <label for="wind_direction">Wind Direction</label>
+                    </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="air_temperature" name="parameters" value="air_temperature">
+                        <label for="air_temperature">Air Temperature</label>
+                    </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="solar_radiation" name="parameters" value="solar_radiation">
+                        <label for="solar_radiation">Solar Radiation</label>
+                    </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="ph" name="parameters" value="ph">
+                        <label for="ph">pH</label>
+                    </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="turbidity" name="parameters" value="turbidity">
+                        <label for="turbidity">Turbidity</label>
+                    </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="water_level" name="parameters" value="water_level">
+                        <label for="water_level">Water Level</label>
+                    </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="relative_humidity" name="parameters" value="relative_humidity">
+                        <label for="relative_humidity">Relative Humidity</label>
+                    </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="water_temperature" name="parameters" value="water_temperature">
+                        <label for="water_temperature">Water Temperature</label>
+                    </div>
+                    <div class="parameter-item">
+                        <input type="checkbox" id="conductivity" name="parameters" value="conductivity">
+                        <label for="conductivity">Conductivity</label>
                     </div>
                 </div>
 
